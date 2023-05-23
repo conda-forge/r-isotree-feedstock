@@ -1,4 +1,4 @@
-{% set version = "0.5.19-1" %}
+{% set version = "0.5.20" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/isotree_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/isotree/isotree_{{ version }}.tar.gz
-  sha256: 40e1affc0ac769c2e376204dc374262a798e3957b7fb03aa6d668692dd6b82d0
+  sha256: 9f503bc5846b329a1cf878cd86b515160281ef985a210c57103ee7f4ad8de6f6
 
 build:
   merge_build_host: true  # [win]
