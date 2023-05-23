@@ -1,4 +1,4 @@
-{% set version = "0.5.19-1" %}
+{% set version = "0.5.20" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/isotree_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/isotree/isotree_{{ version }}.tar.gz
-  sha256: 40e1affc0ac769c2e376204dc374262a798e3957b7fb03aa6d668692dd6b82d0
+  sha256: 9f503bc5846b329a1cf878cd86b515160281ef985a210c57103ee7f4ad8de6f6
 
 build:
   merge_build_host: true  # [win]
@@ -53,7 +53,7 @@ test:
 
 about:
   home: https://github.com/david-cortes/isotree
-  license: BSD_2_clause
+  license: BSD-2-Clause
   summary: Fast and multi-threaded implementation of isolation forest (Liu, Ting, Zhou (2008) <doi:10.1109/ICDM.2008.17>), extended isolation forest (Hariri, Kind, Brunner (2018) <arXiv:1811.02141>), SCiForest (Liu, Ting, Zhou (2010) <doi:10.1007/978-3-642-15883-4_18>), fair-cut forest (Cortes (2021) <arXiv:2110:13402>),
     robust random-cut forest (Guha, Mishra, Roy, Schrijvers (2016) <http://proceedings.mlr.press/v48/guha16.html>), and customizable variations of them, for isolation-based outlier detection, clustered outlier detection, distance or similarity approximation (Cortes (2019) <arXiv:1910.12362>), isolation kernel calculation
     (Ting, Zhu, Zhou (2018) <doi:10.1145/3219819.3219990>), and imputation of missing values (Cortes (2019) <arXiv:1911.06646>), based on random or guided decision tree splitting, and providing different metrics for scoring anomalies based on isolation depth or density (Cortes (2021) <arXiv:2111.11639>). Provides simple
