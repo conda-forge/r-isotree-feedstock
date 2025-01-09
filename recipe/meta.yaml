@@ -1,4 +1,4 @@
-{% set version = "0.6.1-1" %}
+{% set version = "0.6.1-4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,15 +9,13 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/isotree_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/isotree/isotree_{{ version }}.tar.gz
-  sha256: 6d2f0534f3ef2fb6c18f3f0fe6fec6d9ba030ef9e12b7b97a96fd31a55c8146c
+  sha256: 32e80d7e0ffb029b5e5bec2eac4786437091e55825643040484e590c0c017693
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
-  # Checking windows to see if it passes. Uncomment the line if it fails.
-  # skip: true  # [win]
 
 requirements:
   build:
@@ -40,12 +38,17 @@ requirements:
     - libgomp                      # [linux]
     - llvm-openmp                  # [osx]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-rhpcblasctl                # [build_platform != target_platform]
+    - r-jsonlite >=1.7.3           # [build_platform != target_platform]
+    - r-rcpp >=1.0.1               # [build_platform != target_platform]
   host:
     - r-base
+    - r-rhpcblasctl
     - r-jsonlite >=1.7.3
     - r-rcpp >=1.0.1
   run:
     - r-base
+    - r-rhpcblasctl
     - r-jsonlite >=1.7.3
     - r-rcpp >=1.0.1
 
@@ -61,7 +64,6 @@ about:
     robust random-cut forest (Guha, Mishra, Roy, Schrijvers (2016) <http://proceedings.mlr.press/v48/guha16.html>), and customizable variations of them, for isolation-based outlier detection, clustered outlier detection, distance or similarity approximation (Cortes (2019) <arXiv:1910.12362>), isolation kernel calculation
     (Ting, Zhu, Zhou (2018) <doi:10.1145/3219819.3219990>), and imputation of missing values (Cortes (2019) <arXiv:1911.06646>), based on random or guided decision tree splitting, and providing different metrics for scoring anomalies based on isolation depth or density (Cortes (2021) <arXiv:2111.11639>). Provides simple
     heuristics for fitting the model to categorical columns and handling missing data, and offers options for varying between random and guided splits, and for using different splitting criteria.
-  license_family: BSD
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause
     - LICENSE
