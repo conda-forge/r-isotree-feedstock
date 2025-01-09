@@ -1,4 +1,4 @@
-{% set version = "0.6.1-1" %}
+{% set version = "0.6.1-4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/isotree_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/isotree/isotree_{{ version }}.tar.gz
-  sha256: 6d2f0534f3ef2fb6c18f3f0fe6fec6d9ba030ef9e12b7b97a96fd31a55c8146c
+  sha256: 32e80d7e0ffb029b5e5bec2eac4786437091e55825643040484e590c0c017693
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
